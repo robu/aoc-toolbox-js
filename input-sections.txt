@@ -1,0 +1,15 @@
+section 1
+this is a test file that tries to mimic sections
+sometimes used in the aoc inputs.
+
+section 2
+sections are simply block of lines
+separated by one or
+more empty lines
+
+section 3
+we don't particularly care about the content of each section,
+but we want to be able to separate them for now
+
+section 4
+banana
