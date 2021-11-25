@@ -1,9 +1,13 @@
 {
   "name": "aoc-toolbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Various useful tools for solving Advent of Code problems",
   "author": "Robert Buren <robert@buren.se>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:robu/aoc-toolbox-js.git"
+  },
   "main": "aoc-toolbox.js",
   "scripts": {
     "test": "jest"
