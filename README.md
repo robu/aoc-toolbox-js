@@ -2,6 +2,12 @@
 
 This is a small utility to read an input data file from an [Advent of Code](https://adventofcode.com/) problem, and offer a set of alternatives on how to extract and handle the data.
 
+## Features
+
+The AoC problems start with a file of input data (`input.txt`), which need to be parsed and handled. After that, of course, there is solving the actual problem, but you won't even get that far until you've decided how to get data in.
+
+The AoC Toolbox is currently only one class, `InputData` which reads the datafile and allows you to access the data in different ways, depending on how it is structured.
+
 ## Example use
 
 Assuming the below `input.txt`, which describes a number of teams, separated in sections. First line in each section is team name, second line is team members and their ages:
