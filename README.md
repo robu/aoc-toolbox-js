@@ -16,11 +16,11 @@ karen:51 taylor:21 alicia:28 billie:18
 This code extracts these elements in a structured way:
 
 ```javascript
-const {InputData} = require('./aoc-toolbox')
+const {InputData} = require('aoc-toolbox')
 const aoc = new InputData() // input.txt is default filename
 
-let teams = aoc.sections() // assumes sections separated by empty lines
-teams = teams.map((team) => {
+let teamSections = aoc.sections() // assumes sections separated by empty lines
+let teams = teamSections.map((team) => {
     let teamName = team.lines()[0] // name is in first line
     let memberData = team.lines()[1] // get second line as string
     let teamMembers = memberData.split(' ').map((m) => {
