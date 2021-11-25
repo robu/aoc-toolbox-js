@@ -68,17 +68,18 @@ class InputData {
     }
 
     /**
-     * A section in the input data is defined as a number of consecutive lines without any ampty lines
-     * between them. One or more consecutive empty lines separates each section (but is not considered to
+     * A section in the input data is defined as a number of consecutive lines without any separator lines
+     * between them. One or more consecutive separator lines separates each section (but is not considered to
      * be part of any section).
+     * @param dividerLine a string or regexp that identifies what a separator line looks like. Default is empty string = empty line.
      * @returns an array with each section, represented as a new InputData instance
      */
-    sections() {
+    sections(dividerLine='') {
         let sections = []
         let currentSection = []
         let ls = this.lines()
         for (let lineNum in ls) {
-            if (ls[lineNum] == '') {
+            if (ls[lineNum] === dividerLine || (typeof(dividerLine) == 'object' && ls[lineNum].match(dividerLine))) {
                 if (currentSection.length > 0) {
                     sections.push(new InputData({ lines: currentSection }))
                 }

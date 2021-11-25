@@ -42,7 +42,14 @@ test('linefieldsSeparator() regexp', () => {
 
 test('sections()', () => {
     const i = new InputData({ filename: 'test/input-sections.txt' })
-    expect(i.sections()[3].lines()[1]).toBe('banana')
+    let sections = i.sections()
+    expect(sections[3].lines()[1]).toBe('banana')
+})
+
+test('sections() regexp', () => {
+    const i = new InputData({ filename: 'test/input-sections-rx.txt' })
+    let sections = i.sections(/(^$)|(^--)|(^#)/)
+    expect(sections[3].lines()[1]).toBe('banana')
 })
 
 test('matrixChar()', () => {
