@@ -7,7 +7,7 @@ test('lines()', () => {
 })
 
 test('linesInts()', () => {
-    const i = new InputData({ filename: 'test/input.txt' })
+    const i = new InputData('test/input.txt')
     expect(i.linesInts()[0]).toBe(1337)
     expect(i.linesInts()[1]).toBe(42)
 })

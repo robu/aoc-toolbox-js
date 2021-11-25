@@ -7,6 +7,9 @@ const fs = require('fs')
  */
 class InputData {
     constructor(params = {}) {
+        if (typeof(params) == 'string') {
+            params = {filename: params} // given a string, we assume it's a filename
+        }
         if (params.lines) {
             this._lines = params.lines
         } else {
