@@ -1,5 +1,10 @@
 const fs = require('fs')
 
+/**
+ * Reads and interprets a given input data file, for a day of AoC. It contains some useful and
+ * fairly common way that data is represented in historical problems, but whether it will be useful
+ * for any particular problem any particular year, there is no guarantee.
+ */
 class InputData {
     constructor(params = {}) {
         if (params.lines) {
