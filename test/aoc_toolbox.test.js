@@ -31,6 +31,15 @@ test('linefieldsSeparator() string', () => {
     expect(fieldsData[2][4]).toBe('a')
 })
 
+test('linefieldsSeparator() regexp', () => {
+    const i = new InputData({ filename: 'test/input-fields-complex.txt' })
+    let fieldsData = i.linefieldsSeparator(/\s?:=\s?/)
+    expect(fieldsData[0][0]).toBe('a')
+    expect(fieldsData[0][1]).toBe('23 + 34')
+    expect(fieldsData[2][0]).toBe('boing')
+    expect(fieldsData[2][1]).toBe('42')
+})
+
 test('sections()', () => {
     const i = new InputData({ filename: 'test/input-sections.txt' })
     expect(i.sections()[3].lines()[1]).toBe('banana')
