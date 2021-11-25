@@ -1,13 +1,13 @@
 const { InputData } = require('../aoc-toolbox')
 
 test('lines()', () => {
-    const i = new InputData({filename: 'test/input.txt'})
+    const i = new InputData({ filename: 'test/input.txt' })
     expect(i.lines()[0]).toBe('1337')
     expect(i.lines()[1]).toBe('42')
 })
 
 test('linesInts()', () => {
-    const i = new InputData({filename: 'test/input.txt'})
+    const i = new InputData({ filename: 'test/input.txt' })
     expect(i.linesInts()[0]).toBe(1337)
     expect(i.linesInts()[1]).toBe(42)
 })
@@ -20,6 +20,15 @@ test('linefieldsRegexp()', () => {
     expect(fieldArray[0][1]).toBe('123')
     expect(fieldArray[0][2]).toBe('456')
     expect(fieldArray[0][3]).toBe('879')
+})
+
+test('linefieldsSeparator() string', () => {
+    const i = new InputData({ filename: 'test/input-fields-csv.txt' })
+    let fieldsData = i.linefieldsSeparator() // ',' is default separator
+    expect(fieldsData[0][0]).toBe('adam')
+    expect(fieldsData[0][3]).toBe('34')
+    expect(fieldsData[2][0]).toBe('cesar')
+    expect(fieldsData[2][4]).toBe('a')
 })
 
 test('sections()', () => {

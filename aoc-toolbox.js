@@ -60,7 +60,7 @@ class InputData {
 
     /**
      * 
-     * @param {string} separator separator character between fields. Default: ','
+     * @param {string or RegExp} separator separator character (or Regexp) between fields. Default: ','
      * @returns an array with an element for each line, each being an array with all the fields
      */
     linefieldsSeparator(separator=',') {
