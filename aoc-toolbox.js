@@ -6,6 +6,13 @@ const fs = require('fs')
  * for any particular problem any particular year, there is no guarantee.
  */
 class InputData {
+    /**
+     * 
+     * @param {object} params If params.filename exists, that will be used to read the input file.
+     *                        If not, but params.lines exists, that is used as contents of the input file.
+     *                        If a string is provided instead of an object, it is assumed to be a filename.
+     *                        The default value of this parameter is 'input.txt'.
+     */
     constructor(params = {}) {
         if (typeof(params) == 'string') {
             params = {filename: params} // given a string, we assume it's a filename
