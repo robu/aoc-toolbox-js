@@ -139,6 +139,14 @@ class InputData {
     }
 }
 
+/**
+ * Returns an array of shorter arrays based of the supplied array, each subarray
+ * being a number of consecutive elements (a "sliding window") from the supplied array.
+ * 
+ * @param {Array} lines input array
+ * @param {number} windowSize size of window = number of elements in each returned subarray
+ * @returns 
+ */
 const slidingWindow = (lines, windowSize) => {
     if (windowSize > lines.length) {
         return lines
@@ -158,6 +166,7 @@ const slidingWindow = (lines, windowSize) => {
 /**
  * Steps through an array, for each consecutive pair of elements, and returns
  * a count of all pairs that matches the provided test function.
+ * 
  * @param {Array} arr the array to step through. Must be at least two elements long
  * @param compFunc function taking two arguments and returning a boolean
  * @returns 
