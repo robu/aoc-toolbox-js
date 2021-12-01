@@ -139,4 +139,21 @@ class InputData {
     }
 }
 
-module.exports = { InputData }
+const slidingWindow = (lines, windowSize) => {
+    if (windowSize > lines.length) {
+        return lines
+    }
+
+    let windows = []
+    for (let index = 0; index < lines.length - windowSize; index++) {
+        let window = []
+        for (let inner = 0; inner < windowSize; inner++) {
+            window.push(lines[index+inner])
+        }
+        windows.push(window)
+    }
+    return windows
+}
+
+
+module.exports = { InputData, slidingWindow }

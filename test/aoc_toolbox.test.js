@@ -1,4 +1,4 @@
-const { InputData } = require('../aoc-toolbox')
+const { InputData, slidingWindow } = require('../aoc-toolbox')
 
 test('lines()', () => {
     const i = new InputData({ filename: 'test/input.txt' })
@@ -69,3 +69,12 @@ test('subMatrix()', () => {
     expect(i.subMatrix(1, 1, 2, 2).lines()[0]).toBe('.#')
     expect(i.subMatrix(1, 1, 2, 2).lines()[1]).toBe('..')
 })
+
+test('sliding window', () => {
+    const lines = [1,2,3,4,5,6]
+    const windows = slidingWindow(lines, 3)
+    expect(windows[0]).toStrictEqual([1,2,3])
+    expect(windows[1]).toStrictEqual([2,3,4])
+    expect(windows[2]).toStrictEqual([3,4,5])
+})
+
