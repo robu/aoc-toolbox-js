@@ -73,8 +73,10 @@ test('subMatrix()', () => {
 test('sliding window', () => {
     const lines = [1,2,3,4,5,6]
     const windows = slidingWindow(lines, 3)
+    expect(windows.length).toBe(4)
     expect(windows[0]).toStrictEqual([1,2,3])
     expect(windows[1]).toStrictEqual([2,3,4])
     expect(windows[2]).toStrictEqual([3,4,5])
+    expect(windows[3]).toStrictEqual([4,5,6])
 })
 

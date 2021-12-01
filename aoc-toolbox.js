@@ -145,7 +145,7 @@ const slidingWindow = (lines, windowSize) => {
     }
 
     let windows = []
-    for (let index = 0; index < lines.length - windowSize; index++) {
+    for (let index = 0; index <= lines.length - windowSize; index++) {
         let window = []
         for (let inner = 0; inner < windowSize; inner++) {
             window.push(lines[index+inner])
