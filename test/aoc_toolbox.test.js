@@ -1,4 +1,4 @@
-const { InputData, slidingWindow } = require('../aoc-toolbox')
+const { InputData, slidingWindow, countCompare } = require('../aoc-toolbox')
 
 test('lines()', () => {
     const i = new InputData({ filename: 'test/input.txt' })
@@ -80,3 +80,7 @@ test('sliding window', () => {
     expect(windows[3]).toStrictEqual([4,5,6])
 })
 
+test('countCompare()', () => {
+    const arr = [1,2,2,3,4,4,5,5,6]
+    expect(countCompare(arr, (x,y)=>x==y)).toBe(3)
+})

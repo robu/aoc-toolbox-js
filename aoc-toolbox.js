@@ -155,5 +155,22 @@ const slidingWindow = (lines, windowSize) => {
     return windows
 }
 
+/**
+ * Steps through an array, for each consecutive pair of elements, and returns
+ * a count of all pairs that matches the provided test function.
+ * @param {Array} arr the array to step through. Must be at least two elements long
+ * @param compFunc function taking two arguments and returning a boolean
+ * @returns 
+ */
+const countCompare = (arr, compFunc) => {
+    let count = 0
+    arr.reduce((x, y) => {
+        if (compFunc(x, y)) {
+            count++
+        }
+        return y
+    })
+    return count
+}
 
-module.exports = { InputData, slidingWindow }
+module.exports = { InputData, slidingWindow, countCompare }
