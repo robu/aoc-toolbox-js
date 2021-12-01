@@ -1,4 +1,4 @@
-const { InputData, slidingWindow, countCompare } = require('../aoc-toolbox')
+const { InputData, slidingWindow, countCompare, equidistantPairs } = require('../aoc-toolbox')
 
 test('lines()', () => {
     const i = new InputData({ filename: 'test/input.txt' })
@@ -71,16 +71,21 @@ test('subMatrix()', () => {
 })
 
 test('sliding window', () => {
-    const lines = [1,2,3,4,5,6]
+    const lines = [1, 2, 3, 4, 5, 6]
     const windows = slidingWindow(lines, 3)
     expect(windows.length).toBe(4)
-    expect(windows[0]).toStrictEqual([1,2,3])
-    expect(windows[1]).toStrictEqual([2,3,4])
-    expect(windows[2]).toStrictEqual([3,4,5])
-    expect(windows[3]).toStrictEqual([4,5,6])
+    expect(windows[0]).toStrictEqual([1, 2, 3])
+    expect(windows[1]).toStrictEqual([2, 3, 4])
+    expect(windows[2]).toStrictEqual([3, 4, 5])
+    expect(windows[3]).toStrictEqual([4, 5, 6])
 })
 
 test('countCompare()', () => {
-    const arr = [1,2,2,3,4,4,5,5,6]
-    expect(countCompare(arr, (x,y)=>x==y)).toBe(3)
+    const arr = [1, 2, 2, 3, 4, 4, 5, 5, 6]
+    expect(countCompare(arr, (x, y) => x == y)).toBe(3)
+})
+
+test('equidistantPairs()', () => {
+    const arr = [1, 2, 3, 4, 5, 6]
+    expect(equidistantPairs(arr, 3)).toStrictEqual([[1, 4], [2, 5], [3, 6]])
 })

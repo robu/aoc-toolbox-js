@@ -14,8 +14,8 @@ class InputData {
      *                        The default value of this parameter is 'input.txt'.
      */
     constructor(params = {}) {
-        if (typeof(params) == 'string') {
-            params = {filename: params} // given a string, we assume it's a filename
+        if (typeof (params) == 'string') {
+            params = { filename: params } // given a string, we assume it's a filename
         }
         if (params.lines) {
             this._lines = params.lines
@@ -57,7 +57,7 @@ class InputData {
         for (let i = startLine; i < startLine + numLines + 1 && i < l.length; i++) {
             lines2.push(l[i])
         }
-        return new InputData({lines: lines2})
+        return new InputData({ lines: lines2 })
     }
 
     /**
@@ -78,8 +78,8 @@ class InputData {
      * @param {string or RegExp} separator separator character (or Regexp) between fields. Default: ','
      * @returns an array with an element for each line, each being an array with all the fields
      */
-    linefieldsSeparator(separator=',') {
-        return this.lines().map((l)=>l.split(separator))
+    linefieldsSeparator(separator = ',') {
+        return this.lines().map((l) => l.split(separator))
     }
 
     /**
@@ -89,12 +89,12 @@ class InputData {
      * @param dividerLine a string or regexp that identifies what a separator line looks like. Default is empty string = empty line.
      * @returns an array with each section, represented as a new InputData instance
      */
-    sections(dividerLine='') {
+    sections(dividerLine = '') {
         let sections = []
         let currentSection = []
         let ls = this.lines()
         for (let lineNum in ls) {
-            if (ls[lineNum] === dividerLine || (typeof(dividerLine) == 'object' && ls[lineNum].match(dividerLine))) {
+            if (ls[lineNum] === dividerLine || (typeof (dividerLine) == 'object' && ls[lineNum].match(dividerLine))) {
                 if (currentSection.length > 0) {
                     sections.push(new InputData({ lines: currentSection }))
                 }
@@ -156,7 +156,7 @@ const slidingWindow = (lines, windowSize) => {
     for (let index = 0; index <= lines.length - windowSize; index++) {
         let window = []
         for (let inner = 0; inner < windowSize; inner++) {
-            window.push(lines[index+inner])
+            window.push(lines[index + inner])
         }
         windows.push(window)
     }
@@ -182,4 +182,19 @@ const countCompare = (arr, compFunc) => {
     return count
 }
 
-module.exports = { InputData, slidingWindow, countCompare }
+/**
+ * Takes an array and a distance and returns an array of pairs
+ * @param {Array} arr 
+ * @param {number} distance 
+ * @returns An array where each element is an array of two elements, each being 
+ *          from the original array, with the specified distance between
+ */
+const equidistantPairs = (arr, distance) => {
+    let pairs = []
+    for (let i = 0; i < arr.length - distance; i++) {
+        pairs.push([arr[i], arr[i + distance]])
+    }
+    return pairs
+}
+
+module.exports = { InputData, slidingWindow, countCompare, equidistantPairs }
