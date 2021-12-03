@@ -120,11 +120,18 @@ class InputData {
         return this.lines()[row][col]
     }
 
+    /**
+     * Treating the input data as a matrix, this method returns the number of occurrences a 
+     * given character has in the given column of the matrix
+     * @param {number} col 
+     * @param {string} charToCount 
+     * @returns 
+     */
     countOccurrencesInColumn(col, charToCount) {
         const rows = this.lines().length
         let counter = 0
         for (let row = 0; row < rows; row++) {
-            if (inputData.matrixChar(row, col) == charToCount) { counter++ }
+            if (this.matrixChar(row, col) == charToCount) { counter++ }
         }
         return counter
     }

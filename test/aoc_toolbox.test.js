@@ -89,3 +89,15 @@ test('equidistantPairs()', () => {
     const arr = [1, 2, 3, 4, 5, 6]
     expect(equidistantPairs(arr, 3)).toStrictEqual([[1, 4], [2, 5], [3, 6]])
 })
+
+test('countOccurrencesInColumn()', () => {
+    const lines=[
+        "101010",
+        "100110",
+        "111001"
+    ]
+    const i = new InputData({lines: lines})
+    expect(i.countOccurrencesInColumn(0, '1')).toBe(3)
+    expect(i.countOccurrencesInColumn(1, '1')).toBe(1)
+    expect(i.countOccurrencesInColumn(2, '1')).toBe(2)
+})
