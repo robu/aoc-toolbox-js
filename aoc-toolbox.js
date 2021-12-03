@@ -157,12 +157,7 @@ class InputData {
      * @returns 
      */
     countOccurrencesInColumn(col, charToCount) {
-        const rows = this.linesCount()
-        let counter = 0
-        for (let row = 0; row < rows; row++) {
-            if (this.matrixChar(row, col) == charToCount) { counter++ }
-        }
-        return counter
+        return this.filterOnColValue(col, charToCount).linesCount()
     }
 
     /**
