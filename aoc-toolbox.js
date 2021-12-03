@@ -42,10 +42,18 @@ class InputData {
     }
 
     /**
+     * Shortcut for lines()[lineNum]
+     * @param {number} lineNum zero based line number in the data
+     */
+    line(lineNum) {
+        return this.lines()[lineNum]
+    }
+
+    /**
      * For now, assuming all lines are the same length (ie just looking at the first line)
      */
     colsCount() {
-        return this.lines()[0].length
+        return this.line(0).length
     }
 
     /**
@@ -177,8 +185,8 @@ class InputData {
     filterLines(predicate) {
         let ls = []
         for (let i = 0; i < this.linesCount(); i++) {
-            if (predicate(this.lines()[i])) {
-                ls.push(this.lines()[i])
+            if (predicate(this.line(i))) {
+                ls.push(this.line(i))
             }
         }
         return new InputData({lines: ls})
