@@ -115,15 +115,14 @@ class InputData {
     sections(dividerLine = '') {
         let sections = []
         let currentSection = []
-        let ls = this.lines()
-        for (let lineNum in ls) {
-            if (ls[lineNum] === dividerLine || (typeof (dividerLine) == 'object' && ls[lineNum].match(dividerLine))) {
+        for (let lineNum in this.lines()) {
+            if (this.line(lineNum) === dividerLine || (typeof (dividerLine) == 'object' && this.line(lineNum).match(dividerLine))) {
                 if (currentSection.length > 0) {
                     sections.push(new InputData({ lines: currentSection }))
                 }
                 currentSection = []
             } else {
-                currentSection.push(ls[lineNum])
+                currentSection.push(this.line(lineNum))
             }
         }
         if (currentSection.length > 0) {
