@@ -37,6 +37,17 @@ class InputData {
         return this._lines
     }
 
+    linesCount() {
+        return this.lines().length
+    }
+
+    /**
+     * For now, assuming all lines are the same length (ie just looking at the first line)
+     */
+    colsCount() {
+        return this.lines()[0].length
+    }
+
     /**
      * 
      * @returns same as InputData.lines() but each line converted to integer
