@@ -157,6 +157,29 @@ class InputData {
         }
         return new InputData({ lines: sub })
     }
+
+    /**
+     * Returns a new InputData instance that is a subset of this one, where each line
+     * is copied from this instance, if the given predicate function returns true for that line.
+     * @param {Function} predicate 
+     */
+    filterLines(predicate) {
+        let ls = []
+        for (let i = 0; i < this.lines().length; i++) {
+            if (predicate(this.lines()[i])) {
+                ls.push(this.lines()[i])
+            }
+        }
+        return new InputData({lines: ls})
+    }
+
+    /**
+     * Returns a new InputData instance where each line matches the given value in the given column.
+     */
+    filterOnColValue(col, value) {
+        return this.filterLines((line) => line[col] == value)
+    }
+
 }
 
 /**

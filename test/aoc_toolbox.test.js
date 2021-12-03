@@ -91,13 +91,26 @@ test('equidistantPairs()', () => {
 })
 
 test('countOccurrencesInColumn()', () => {
-    const lines=[
+    const lines = [
         "101010",
         "100110",
         "111001"
     ]
-    const i = new InputData({lines: lines})
+    const i = new InputData({ lines: lines })
     expect(i.countOccurrencesInColumn(0, '1')).toBe(3)
     expect(i.countOccurrencesInColumn(1, '1')).toBe(1)
     expect(i.countOccurrencesInColumn(2, '1')).toBe(2)
+})
+
+test('filterOnColValue', () => {
+    const lines = [
+        "101010",
+        "100110",
+        "111001"
+    ]
+    const i = new InputData({ lines: lines })
+    const i2 = i.filterOnColValue(2, '1')
+    expect(i2.lines().length).toBe(2)
+    expect(i2.lines()[0]).toBe("101010")
+    expect(i2.lines()[1]).toBe("111001")
 })
