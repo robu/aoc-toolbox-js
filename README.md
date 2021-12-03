@@ -18,6 +18,9 @@ So, which typical input data structures will `InputData` be useful with? Here is
 
 Many of the above methods actually return a new `InputData` instance instead of raw data, allowing the use cases above to be chained in a string of steps.
 
+There are also other ways to extract a subset of the data to operate on further:
+- **filter out lines** - the generic way to filter out a set of lines that matches any predicate is to use the `InputData.filterLines()` method. There is also a special case of this, to filter out lines matching the value of a character in a given column, `InputData.filterOnColValue()`.
+
 ## Example use
 
 Assuming the below `input.txt`, which describes a number of teams, separated in sections. First line in each section is team name, second line is team members and their ages:
