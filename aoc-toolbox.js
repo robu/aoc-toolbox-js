@@ -75,10 +75,10 @@ class InputData {
         let lines2 = []
         let l = this.lines()
         if (numLines < 0) {
-            numLines = l.length
+            numLines = this.linesCount()
         }
-        for (let i = startLine; i < startLine + numLines + 1 && i < l.length; i++) {
-            lines2.push(l[i])
+        for (let i = startLine; i < startLine + numLines + 1 && i < this.linesCount(); i++) {
+            lines2.push(this.line(i))
         }
         return new InputData({ lines: lines2 })
     }
@@ -170,7 +170,7 @@ class InputData {
         let sub = []
         let ls = this.lines()
         for (let rowNum = startRow; rowNum < startRow + rows; rowNum++) {
-            let subRow = ls[rowNum].substr(startCol, cols)
+            let subRow = this.line(rowNum).substr(startCol, cols)
             sub.push(subRow)
         }
         return new InputData({ lines: sub })
