@@ -1,5 +1,9 @@
 const fs = require('fs')
 
+const js = (x) => JSON.stringify(x, null, 4)
+const cs = (x) => console.log(js(x))
+
+
 /**
  * Reads and interprets a given input data file, for a day of AoC. It contains some useful and
  * fairly common way that data is represented in historical problems, but whether it will be useful
@@ -213,4 +217,4 @@ const equidistantPairs = (arr, distance) => {
     return pairs
 }
 
-module.exports = { InputData, slidingWindow, countCompare, equidistantPairs }
+module.exports = { InputData, slidingWindow, countCompare, equidistantPairs, cs, js }
