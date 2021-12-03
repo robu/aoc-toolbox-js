@@ -189,7 +189,7 @@ class InputData {
                 ls.push(this.line(i))
             }
         }
-        return new InputData({lines: ls})
+        return new InputData({ lines: ls })
     }
 
     /**
