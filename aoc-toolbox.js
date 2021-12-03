@@ -50,6 +50,13 @@ class InputData {
     }
 
     /**
+     * Shortcut for line(0)
+     */
+    firstLine() {
+        return this.line(0)
+    }
+
+    /**
      * For now, assuming all lines are the same length (ie just looking at the first line)
      */
     colsCount() {

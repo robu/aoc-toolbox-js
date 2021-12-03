@@ -6,6 +6,28 @@ test('lines()', () => {
     expect(i.lines()[1]).toBe('42')
 })
 
+test('line(x)', () => {
+    const l = [
+        "123",
+        "234",
+        "abc"
+    ]
+    const i = new InputData({lines: l})
+    expect(i.line(0)).toBe("123")
+    expect(i.line(1)).toBe("234")
+    expect(i.line(2)).toBe("abc")
+})
+
+test('firstLine', () => {
+    const l = [
+        "123",
+        "234",
+        "abc"
+    ]
+    const i = new InputData({lines: l})
+    expect(i.firstLine()).toBe("123")
+})
+
 test('linesInts()', () => {
     const i = new InputData('test/input.txt')
     expect(i.linesInts()[0]).toBe(1337)
