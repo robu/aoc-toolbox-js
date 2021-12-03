@@ -170,7 +170,6 @@ class InputData {
      */
     subMatrix(startRow, startCol, rows, cols) {
         let sub = []
-        let ls = this.lines()
         for (let rowNum = startRow; rowNum < startRow + rows; rowNum++) {
             let subRow = this.line(rowNum).substr(startCol, cols)
             sub.push(subRow)
