@@ -143,7 +143,7 @@ class InputData {
      * @returns 
      */
     countOccurrencesInColumn(col, charToCount) {
-        const rows = this.lines().length
+        const rows = this.linesCount()
         let counter = 0
         for (let row = 0; row < rows; row++) {
             if (this.matrixChar(row, col) == charToCount) { counter++ }
@@ -176,7 +176,7 @@ class InputData {
      */
     filterLines(predicate) {
         let ls = []
-        for (let i = 0; i < this.lines().length; i++) {
+        for (let i = 0; i < this.linesCount(); i++) {
             if (predicate(this.lines()[i])) {
                 ls.push(this.lines()[i])
             }
