@@ -1,6 +1,6 @@
 {
   "name": "aoc-toolbox",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Various useful tools for solving Advent of Code problems",
   "author": "Robert Buren <robert@buren.se>",
   "license": "MIT",
