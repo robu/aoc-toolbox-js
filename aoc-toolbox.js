@@ -120,6 +120,15 @@ class InputData {
         return this.lines()[row][col]
     }
 
+    countOccurrencesInColumn(col, charToCount) {
+        const rows = this.lines().length
+        let counter = 0
+        for (let row = 0; row < rows; row++) {
+            if (inputData.matrixChar(row, col) == charToCount) { counter++ }
+        }
+        return counter
+    }
+
     /**
      * Considering the input file as a matrix of characters, this method extracts a sub matrix from the original.
      * @param {number} startRow 
