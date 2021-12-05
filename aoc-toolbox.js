@@ -25,7 +25,8 @@ class InputData {
             this._lines = params.lines
         } else {
             let filename = params.filename || "input.txt"
-            this._lines = fs.readFileSync(filename).toString().trim().split("\n")
+            let encoding = params.encoding || "utf8"
+            this._lines = fs.readFileSync(filename, {encoding}).trim().split("\n")
         }
     }
 
